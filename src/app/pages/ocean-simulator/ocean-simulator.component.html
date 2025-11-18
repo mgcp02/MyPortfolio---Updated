@@ -1,0 +1,25 @@
+<div class="background">
+    <a href="/fun-projects" class="back-arrow">
+    <span class="arrow-icon">←</span>
+    <span class="arrow-text">Back</span>
+</a>
+
+  <h2 class="title">Help me clean the ocean</h2>
+  <p class="instruction">Pick up the trash and drop it in the bin!</p>
+<div id="ocean">
+  <div *ngFor="let t of trashItems" 
+       #trash 
+       [id]="t.id" 
+       class="trash" 
+       draggable="true"
+       (dragstart)="onDragStart($event)"
+       (dragend)="onDragEnd($event)">
+    {{t.emoji}}
+  </div>
+  <div id="bin" 
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)">
+    🗑️ Drop Trash Here
+  </div>
+</div>
+</div>
